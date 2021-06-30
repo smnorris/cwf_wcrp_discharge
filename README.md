@@ -14,6 +14,8 @@ See `bcfishpass`
 
 ## Usage
 
+Edit the discharge script to point to the provided shapefiles. Run the script:
+
     ./discharge.sh
 
 ## Output table
