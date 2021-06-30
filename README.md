@@ -1,4 +1,4 @@
-# WCRP Discharge
+# CWF WCRP Discharge
 
 Mean annual discharge pre-processing for CWF Watershed Connectivity Restoration Plans.
 
