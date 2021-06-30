@@ -5,8 +5,8 @@ Mean annual discharge pre-processing for CWF Watershed Connectivity Restoration 
 For Bulkley River, Elk River and Horsefly watersheds, high resoloution discharge data was provided by Foundry Spatial for CWF use only.
 Lower Nicola discharge was also provided (separately), but this data is from PCIC with no further processing by Foundry.
 
-These scripts load the data to a `foundry` schema in postgres db and links the watershed based discharge values to streams.
-To use the output in `bcfishpass` habitat modelling, copy the output table to the table `bcfishpass.discharge`, replacing the default discharge table.
+These scripts load the data to a `foundry` schema in postgres db and link the watershed based discharge values to streams.
+To use the output in `bcfishpass` habitat modelling, copy the output table to `bcfishpass.discharge`, replacing the default discharge table.
 
 ## Requirements
 
