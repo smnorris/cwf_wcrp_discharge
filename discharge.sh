@@ -40,7 +40,7 @@ psql -c "DROP TABLE foundry.cwf_mad_funds"
 psql -c "DROP TABLE foundry.cwf_mad_funds_lnic"
 
 # finally, create the discharge per stream table
-psql -f sql/mean_annual_discharge_foundry.sql
+psql -f sql/discharge.sql
 
 # drop the watershed table, we only need the stream table for habitat modelling
 psql -c "DROP TABLE foundry.fwa_watersheds_mad"
