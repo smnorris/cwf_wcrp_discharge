@@ -8,7 +8,7 @@ psql -c "CREATE SCHEMA IF NOT EXISTS foundry"
 
 # load the shapes and tidy the rather precise discharge values
 ogr2ogr \
-  -f PostgreSQL PG:'host=localhost user=postgres dbname=postgis password=postgres' \
+  -f PostgreSQL PG:$DATABASE_URL \
   -lco OVERWRITE=YES \
   -t_srs EPSG:3005 \
   -lco SCHEMA=foundry \
@@ -20,7 +20,7 @@ ogr2ogr \
   ~/Data/Foundry/cwf_mad_request/cwf_mad_funds.shp
 
 ogr2ogr \
-  -f PostgreSQL PG:'host=localhost user=postgres dbname=postgis password=postgres' \
+  -f PostgreSQL $DATABASE_URL \
   -lco OVERWRITE=YES \
   -t_srs EPSG:3005 \
   -lco SCHEMA=foundry \
