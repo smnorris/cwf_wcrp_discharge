@@ -14,18 +14,8 @@ See `bcfishpass`
 
 ## Usage
 
-Edit the discharge script to point to the provided shapefiles. Run the script:
+Edit the discharge script to point to the provided shapefiles. 
+Run the script to load provided Foundry discharge to bcfishpass discharge table:
 
     ./discharge.sh
-
-## Output table
-
-                           Table "foundry.fwa_streams_mad"
-            Column        |         Type         | Collation | Nullable | Default
-    ----------------------+----------------------+-----------+----------+---------
-     linear_feature_id    | bigint               |           | not null |
-     watershed_group_code | character varying(4) |           |          |
-     mad_m3s              | double precision     |           |          |
-    Indexes:
-        "fwa_streams_mad_pkey" PRIMARY KEY, btree (linear_feature_id)
 

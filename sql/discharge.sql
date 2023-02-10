@@ -29,7 +29,6 @@ ON w.watershed_feature_id = mad.watershed_feature_id
 WHERE s.watershed_group_code IN ('BULK','HORS','LNIC','ELKR')
 ON CONFLICT DO NOTHING;
 
-
 -- 535 streams (with local codes) don't get loaded above
 -- add them with a spatial query
 WITH stream_pts AS
@@ -57,3 +56,12 @@ ON ST_Intersects(p.geom, w.geom)
 INNER JOIN foundry.fwa_watersheds_mad mad
 ON w.watershed_feature_id = mad.watershed_feature_id
 ON CONFLICT DO NOTHING;
+
+-- update primary discharge table
+update bcfishpass.discharge d
+set mad_m3s = f.mad_m3s
+from foundry.fwa_streams_mad f
+where d.linear_feature_id = f.linear_feature_id;
+
+-- cleanup
+drop schema foundry cascade;

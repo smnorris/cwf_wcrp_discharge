@@ -39,8 +39,5 @@ psql -c "INSERT INTO foundry.fwa_watersheds_mad (watershed_feature_id, upstream_
 psql -c "DROP TABLE foundry.cwf_mad_funds"
 psql -c "DROP TABLE foundry.cwf_mad_funds_lnic"
 
-# finally, create the discharge per stream table
+# finally, create the discharge per stream table and load to bcfishpass.discharge
 psql -f sql/discharge.sql
-
-# drop the watershed table, we only need the stream table for habitat modelling
-psql -c "DROP TABLE foundry.fwa_watersheds_mad"
