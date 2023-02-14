@@ -57,11 +57,15 @@ INNER JOIN foundry.fwa_watersheds_mad mad
 ON w.watershed_feature_id = mad.watershed_feature_id
 ON CONFLICT DO NOTHING;
 
--- update primary discharge table
-update bcfishpass.discharge d
-set mad_m3s = f.mad_m3s
-from foundry.fwa_streams_mad f
-where d.linear_feature_id = f.linear_feature_id;
+insert into bcfishpass.discharge
+  (linear_feature_id, watershed_group_code, mad_m3s)
+select 
+  linear_feature_id,
+  watershed_group_code,
+  mad_m3s
+from foundry.fwa_streams_mad
+on conflict (linear_feature_id)
+do update set mad_m3s = EXCLUDED.mad_m3s;
 
 -- cleanup
 drop schema foundry cascade;
