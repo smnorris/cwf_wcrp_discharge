@@ -1,7 +1,4 @@
 -- Build a stream discharge table from the provided watershed discharge table
--- This could be run in-line when building the model but it takes a few seconds to process, just run it once
-
--- Note that only Bulkley and Horsefly watersheds currently have data, Lower Nicola is anticipated in 2021
 
 DROP TABLE IF EXISTS foundry.fwa_streams_mad;
 
@@ -57,7 +54,7 @@ INNER JOIN foundry.fwa_watersheds_mad mad
 ON w.watershed_feature_id = mad.watershed_feature_id
 ON CONFLICT DO NOTHING;
 
-insert into bcfishpass.discharge
+insert into whse_basemapping.fwa_stream_networks_discharge
   (linear_feature_id, watershed_group_code, mad_m3s)
 select 
   linear_feature_id,
@@ -68,4 +65,4 @@ on conflict (linear_feature_id)
 do update set mad_m3s = EXCLUDED.mad_m3s;
 
 -- cleanup
-drop schema foundry cascade;
+-- drop schema foundry cascade;
