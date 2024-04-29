@@ -54,6 +54,7 @@ INNER JOIN foundry.fwa_watersheds_mad mad
 ON w.watershed_feature_id = mad.watershed_feature_id
 ON CONFLICT DO NOTHING;
 
+-- load to FWA stream networks discharge table, replacing any existing data
 insert into whse_basemapping.fwa_stream_networks_discharge
   (linear_feature_id, watershed_group_code, mad_m3s)
 select 

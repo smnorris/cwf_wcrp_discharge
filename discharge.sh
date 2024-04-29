@@ -41,5 +41,5 @@ $PSQL -c "INSERT INTO foundry.fwa_watersheds_mad (watershed_feature_id, upstream
 $PSQL -c "DROP TABLE foundry.cwf_mad_funds"
 $PSQL -c "DROP TABLE foundry.cwf_mad_funds_lnic"
 
-# finally, create the discharge per stream table and load to bcfishpass.discharge
+# finally, create the discharge per stream table and load to whse_basemapping.fwa_stream_networks_discharge
 $PSQL -f sql/discharge.sql
